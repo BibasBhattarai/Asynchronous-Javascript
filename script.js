@@ -107,10 +107,103 @@
 
 //#ASYNC/AWAT
 
-async function abcd(){
-    let a= await fetch("https://randomuser.me/api/")
-    a = await a.json();
-    console.log(a);
+// async function abcd(){
+//     let a= await fetch("https://randomuser.me/api/")
+//     a = await a.json();
+//     console.log(a);
+// }
+
+// abcd();
+
+
+
+// #  CALLBACK VS PROMISES VS ASYNC/AWAIT
+
+
+// by callback 
+// function datafetcher(url,callback){
+//     fetch(`https://randomuser.me/api/`)
+//     .then(raw=>raw.json())
+//     .then(result=>{
+//         callback(result);
+//     })
+// }
+
+// datafetcher("https://randomuser.me/api/",function(result){
+//     console.log(result);
+// })
+
+
+
+
+// by promise
+
+// function datafetcher(url){
+//     const parchi =new Promise(function(resolve,reject){
+//         fetch(url)
+//         .then(raw=>raw.json())
+//         .then(result=>{
+//             resolve(result);
+//         })
+//     })
+//     return parchi;
+// }
+
+
+// datafetcher("https://randomuser.me/api/")
+// .then(function(result){
+//     console.log(result);
+// })
+
+
+
+
+//async await
+
+
+// async function datafetcher(url){
+//     let data= await fetch(url);
+//     let result =await data.json();
+
+// }
+
+// async function hh(){
+//     let data = await datafetcher("https://randomuser.me/api/");
+//     console.log(data);
+// }
+// hh();
+
+
+
+
+// #GENERATORS
+
+// function* printnum(){
+//     console.log("Started");
+//     yield 1;
+//     console.log("Progressing");
+//     yield 2;
+//     console.log("finishing");
+//     yield 3;
+// }
+// const ans= printnum();
+// console.log(ans.next().value);
+// console.log(ans.next().value);
+// console.log(ans.next().value);
+// console.log(ans.next().value);
+
+
+// Example 
+
+function* allnums(){
+    for(var i=0; i<11; i++){
+        yield i;
+    }
 }
 
-abcd();
+const gen=allnums();
+console.log(gen.next().value);
+console.log(gen.next().value);
+console.log(gen.next().value);
+console.log(gen.next().value);
+console.log(gen.next().value);
